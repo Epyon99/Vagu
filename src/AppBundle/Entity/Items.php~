@@ -1,0 +1,68 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Items
+ *
+ * @ORM\Table(name="items")
+ * @ORM\Entity
+ */
+class Items
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Codigo", type="string", length=255, nullable=false)
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Nombre", type="string", length=255, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Precio", type="string", length=255, nullable=false)
+     */
+    private $precio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Series", type="string", length=255, nullable=false)
+     */
+    private $series;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="IdMarca", type="integer", nullable=false)
+     */
+    private $idmarca;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Descripcion", type="integer", nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="IdItem", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $iditem;
+
+
+}
+

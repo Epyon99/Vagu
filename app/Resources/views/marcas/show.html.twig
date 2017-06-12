@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Marca</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ marca.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ marca.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Codigo</th>
+                <td>{{ marca.codigo }}</td>
+            </tr>
+            <tr>
+                <th>Idmarca</th>
+                <td>{{ marca.idmarca }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('marcas_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('marcas_edit', { 'idmarca': marca.idmarca }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-xs" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

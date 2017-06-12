@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Item</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Codigo</th>
+                <td>{{ item.codigo }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ item.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Precio</th>
+                <td>{{ item.precio }}</td>
+            </tr>
+            <tr>
+                <th>Series</th>
+                <td>{{ item.series }}</td>
+            </tr>
+            <tr>
+                <th>Idmarca</th>
+                <td>{{ item.idmarca }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ item.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Iditem</th>
+                <td>{{ item.iditem }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('items_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('items_edit', { 'iditem': item.iditem }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-xs" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

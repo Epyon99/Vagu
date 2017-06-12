@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Items list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Series</th>
+                <th>Idmarca</th>
+                <th>Descripcion</th>
+                <th>Iditem</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td><a href="{{ path('items_show', { 'iditem': item.iditem }) }}">{{ item.codigo }}</a></td>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.precio }}</td>
+                <td>{{ item.series }}</td>
+                <td>{{ item.idmarca }}</td>
+                <td>{{ item.descripcion }}</td>
+                <td>{{ item.iditem }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('items_show', { 'iditem': item.iditem }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('items_edit', { 'iditem': item.iditem }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('items_new') }}">Create a new item</a>
+        </li>
+    </ul>
+{% endblock %}
