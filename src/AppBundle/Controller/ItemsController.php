@@ -21,6 +21,11 @@ class ItemsController extends Controller
      */
     public function indexAction()
     {
+		if (!$isset($_COOKIE[$cookie_name]))
+		{
+			// return to Login Controller
+		}
+		
         $em = $this->getDoctrine()->getManager();
 
         $items = $em->getRepository('AppBundle:Items')->findAll();
@@ -41,12 +46,11 @@ class ItemsController extends Controller
         $item = new Items();
         $form = $this->createForm('AppBundle\Form\ItemsType', $item,array('allow_extra_fields' =>true));
         $form->handleRequest($request);
-		
         $em = $this->getDoctrine()->getManager();
         $marcas = $em->getRepository('AppBundle:Marcas')->findAll();
 
         if ($form->isSubmitted() && $form->isValid()) {
-			$item->setIdmarca($request->get("idmarca");
+			$item->setIdmarca($request->get("idmarca"));
             $em = $this->getDoctrine()->getManager();
             $em->persist($item);
             $em->flush();

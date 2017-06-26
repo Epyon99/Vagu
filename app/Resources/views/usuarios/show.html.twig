@@ -3,27 +3,27 @@
 {% block body %}
     <h1>Usuario</h1>
 
-    <table class="table">
+    <table>
         <tbody>
             <tr>
-                <th>Nombre</th>
-                <td>{{ usuario.nombre }}</td>
+                <th>Id</th>
+                <td>{{ usuario.id }}</td>
             </tr>
             <tr>
-                <th>Clave</th>
-                <td>{{ usuario.clave }}</td>
+                <th>Username</th>
+                <td>{{ usuario.username }}</td>
             </tr>
             <tr>
-                <th>Secreto</th>
-                <td>{{ usuario.secreto }}</td>
+                <th>Password</th>
+                <td>{{ usuario.password }}</td>
             </tr>
             <tr>
-                <th>Extra</th>
-                <td>{{ usuario.extra }}</td>
+                <th>Email</th>
+                <td>{{ usuario.email }}</td>
             </tr>
             <tr>
-                <th>Idusuario</th>
-                <td>{{ usuario.idusuario }}</td>
+                <th>Isactive</th>
+                <td>{% if usuario.isActive %}Yes{% else %}No{% endif %}</td>
             </tr>
         </tbody>
     </table>
@@ -33,11 +33,11 @@
             <a href="{{ path('usuarios_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('usuarios_edit', { 'idusuario': usuario.idusuario }) }}">Edit</a>
+            <a href="{{ path('usuarios_edit', { 'id': usuario.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input class="btn btn-xs" type="submit" value="Delete">
+                <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>

@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form;
+namespace TestBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,16 +22,16 @@ class UsuariosType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Usuarios'
+            'data_class' => 'TestBundle\Entity\Usuarios'
         ));
     }
 
     /**
-     * {@inheritdoc
+     * {@inheritdoc}
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_usuarios';
+        return 'testbundle_usuarios';
     }
 
 

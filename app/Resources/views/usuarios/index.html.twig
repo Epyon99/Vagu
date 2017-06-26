@@ -3,32 +3,32 @@
 {% block body %}
     <h1>Usuarios list</h1>
 
-    <table class="table">
+    <table>
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Clave</th>
-                <th>Secreto</th>
-                <th>Extra</th>
-                <th>Idusuario</th>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Isactive</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for usuario in usuarios %}
             <tr>
-                <td><a href="{{ path('usuarios_show', { 'idusuario': usuario.idusuario }) }}">{{ usuario.nombre }}</a></td>
-                <td>{{ usuario.clave }}</td>
-                <td>{{ usuario.secreto }}</td>
-                <td>{{ usuario.extra }}</td>
-                <td>{{ usuario.idusuario }}</td>
+                <td><a href="{{ path('usuarios_show', { 'id': usuario.id }) }}">{{ usuario.id }}</a></td>
+                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.password }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{% if usuario.isActive %}Yes{% else %}No{% endif %}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('usuarios_show', { 'idusuario': usuario.idusuario }) }}">show</a>
+                            <a href="{{ path('usuarios_show', { 'id': usuario.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('usuarios_edit', { 'idusuario': usuario.idusuario }) }}">edit</a>
+                            <a href="{{ path('usuarios_edit', { 'id': usuario.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
